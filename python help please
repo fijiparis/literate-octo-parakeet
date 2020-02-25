@@ -1,0 +1,91 @@
+import re
+
+f = open("payroll1.txt", "r")
+
+print("Name\tID\tGross Pay")
+
+for line in f.readlines():
+    fields = re.split(r'\t+', line.strip())
+
+    name = fields[0]
+
+    id_num = int(fields[1])
+
+    pay_type = fields[2]
+
+    pay_rate = float(fields[3])
+
+    if pay_type=='H':
+        hours_worked = int(fields[4])
+
+    if pay_type=='H':
+        gross_pay = pay_rate*hours_worked
+
+    else:
+
+        gross_pay = pay_rate
+
+    print("%s\t%d\t%.2f"%(name, id_num, gross_pay))
+
+f.close()
+
+
+
+
+
+
+
+payroll1.txt
+=-=-=-=-=-=-=-=-=-=
+Rec Cnt: 1
+name Kelly 
+ID 1
+payType H
+payRate 12.0
+hours 32
+Gross Pay >> 384.0
+=-=-=-=-=-=-=-=-=-=
+=-=-=-=-=-=-=-=-=-=
+Rec Cnt: 2
+name Jason 
+ID 1
+payType S
+payRate 700.0
+hours 40
+Gross Pay >> 700.0
+=-=-=-=-=-=-=-=-=-=
+=-=-=-=-=-=-=-=-=-=
+Rec Cnt: 3
+name Alice 
+ID 1
+payType S
+payRate 720.0
+hours 40
+Gross Pay >> 720.0
+=-=-=-=-=-=-=-=-=-=
+=-=-=-=-=-=-=-=-=-=
+Rec Cnt: 4
+name Debra 
+ID 1
+payType H
+payRate 13.0
+hours 19
+Gross Pay >> 247.0
+=-=-=-=-=-=-=-=-=-=
+=-=-=-=-=-=-=-=-=-=
+Rec Cnt: 5
+name Gordon
+ID 1
+payType H
+payRate 12.0
+hours 23
+Gross Pay >> 276.0
+=-=-=-=-=-=-=-=-=-=
+
+
+
+Name	ID	Gross Pay
+Traceback (most recent call last):
+  File "/Users/..../Documents/payroolll lab.py", line 12, in <module>
+    id_num = int(fields[1])
+IndexError: list index out of range
